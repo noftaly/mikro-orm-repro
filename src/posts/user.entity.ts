@@ -6,9 +6,5 @@ export class User {
   userId: number;
 
   @Property({ type: 'text' })
-  username!: string;
-
-  constructor(username: string) {
-    this.username = username;
-  }
+  username = 'John Doe';
 }

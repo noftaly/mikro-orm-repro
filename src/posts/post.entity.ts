@@ -13,12 +13,8 @@ export class Post {
   postId: number;
 
   @Property({ type: 'text' })
-  content!: string;
+  content = 'This is a content.';
 
   @ManyToMany()
   assignees = new Collection<User>(this);
-
-  constructor(content: string ) {
-    this.content = content;
-  }
 }

@@ -1,7 +1,6 @@
 import { InjectRepository } from '@mikro-orm/nestjs';
 import { EntityRepository } from '@mikro-orm/postgresql';
 import { Injectable } from '@nestjs/common';
-import { CreatePostDto } from './create-post.dto';
 import { Post } from './post.entity';
 
 @Injectable()
@@ -10,9 +9,8 @@ export class PostsService {
     @InjectRepository(Post) private readonly postRepository: EntityRepository<Post>,
   ) {}
 
-  async create(createPostDto: CreatePostDto) {
-    const post = new Post(createPostDto.content);
-
+  async create() {
+    const post = new Post();
     await this.postRepository.persistAndFlush(post);
     return post;
   }
