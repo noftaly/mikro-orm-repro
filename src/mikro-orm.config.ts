@@ -5,7 +5,7 @@ import { Logger } from '@nestjs/common';
 const ormLogger = new Logger('MikroORM');
 
 export default {
-  dbName: 'mikro-orm-repro',
+  dbName: 'mikroormrepro',
   type: 'postgresql',
   entities: ['./dist/**/*.entity.js'],
   entitiesTs: ['./src/**/*.entity.ts'],

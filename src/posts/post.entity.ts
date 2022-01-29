@@ -5,7 +5,6 @@ import {
   PrimaryKey,
   Property,
 } from '@mikro-orm/core';
-import { Exclude } from 'class-transformer';
 import type { User } from './user.entity';
 
 @Entity()
@@ -15,13 +14,6 @@ export class Post {
 
   @Property({ type: 'text' })
   content!: string;
-
-  @Property()
-  createdAt = new Date();
-
-  @Property({ onUpdate: () => new Date() })
-  @Exclude()
-  updatedAt = new Date();
 
   @ManyToMany()
   assignees = new Collection<User>(this);
